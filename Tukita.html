@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tukita - Tamagotchi Web</title>
+    <link rel="stylesheet" href="tukita.css">
+</head>
+<body>
+
+<header class="encabezado">
+    <p class="etiqueta">Tamagotchi Web</p>
+    <h1>Tukita</h1>
+    <p class="instruccion">Arrastra un objeto y suéltalo encima de Tukita para cuidarla.</p>
+</header>
+
+<main class="app">
+    <section class="zona-juego">
+        <div class="barra-superior">
+            <button class="boton-ui" type="button" onclick="cambiarSala('cocina')">Cocina</button>
+            <button class="boton-ui" type="button" onclick="cambiarSala('cuarto')">Cuarto</button>
+            <button class="boton-ui" type="button" onclick="reiniciarJuego()">Reiniciar</button>
+        </div>
+
+        <div
+            id="zonaMascota"
+            class="zona-mascota"
+            ondrop="dropHandler(event)"
+            ondragover="dragoverHandler(event)"
+            ondragenter="dragenterHandler(event)"
+            ondragleave="dragleaveHandler(event)">
+
+            <div id="nombreMascota" class="nombre-mascota">Tukita</div>
+
+            <img
+                id="tukitaImg"
+                class="tukita"
+                src="Piskel-Tukita-/Iconos/Solo Tuktia.png"
+                alt="Tukita">
+
+            <p id="mensajeMascota" class="mensaje-mascota">
+                Estoy tranquila. ¿Jugamos?
+            </p>
+        </div>
+    </section>
+
+    <aside class="panel">
+        <h2>Estado</h2>
+        <p id="estadoTexto" class="estado-texto">Estado actual: normal</p>
+
+        <div class="status-row invertida">
+            <div class="status-info">
+                <span>Hambre</span>
+                <strong id="lblHambre">50%</strong>
+            </div>
+            <div class="barra">
+                <div id="barHambre" class="relleno"></div>
+            </div>
+            <small>En hambre, menos es mejor.</small>
+        </div>
+
+        <div class="status-row">
+            <div class="status-info">
+                <span>Energía</span>
+                <strong id="lblEnergia">70%</strong>
+            </div>
+            <div class="barra">
+                <div id="barEnergia" class="relleno"></div>
+            </div>
+        </div>
+
+        <div class="status-row">
+            <div class="status-info">
+                <span>Felicidad</span>
+                <strong id="lblFelicidad">75%</strong>
+            </div>
+            <div class="barra">
+                <div id="barFelicidad" class="relleno"></div>
+            </div>
+        </div>
+
+        <div class="status-row">
+            <div class="status-info">
+                <span>Salud</span>
+                <strong id="lblSalud">85%</strong>
+            </div>
+            <div class="barra">
+                <div id="barSalud" class="relleno"></div>
+            </div>
+        </div>
+
+        <div class="status-row">
+            <div class="status-info">
+                <span>Higiene</span>
+                <strong id="lblHigiene">80%</strong>
+            </div>
+            <div class="barra">
+                <div id="barHigiene" class="relleno"></div>
+            </div>
+        </div>
+
+        <div class="status-row">
+            <div class="status-info">
+                <span>Pelo</span>
+                <strong id="lblPelo">75%</strong>
+            </div>
+            <div class="barra">
+                <div id="barPelo" class="relleno"></div>
+            </div>
+        </div>
+    </aside>
+</main>
+
+<section class="objetos">
+    <div id="comida" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Manzanita Icono.png" alt="Manzana">
+        <span>Comer</span>
+    </div>
+
+    <div id="dormir" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Luna Icono.png" alt="Luna">
+        <span>Dormir</span>
+    </div>
+
+    <div id="jugar" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Arcade.png" alt="Mando">
+        <span>Jugar</span>
+    </div>
+
+    <div id="banar" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Jaboncin Icono.png" alt="Jabón">
+        <span>Bañar</span>
+    </div>
+
+    <div id="curar" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Po.Curariva Icono.png" alt="Poción curativa">
+        <span>Curar</span>
+    </div>
+
+    <div id="cortarPelo" class="objeto-card" draggable="true" ondragstart="dragstartHandler(event)">
+        <img src="Piskel-Tukita-/Iconos/Tijeritas Icono.png" alt="Tijeras">
+        <span>Pelo</span>
+    </div>
+</section>
+
+<script src="function.js"></script>
+
+</body>
+</html>
